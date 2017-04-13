@@ -1,0 +1,43 @@
+"use strict";
+
+module.exports = function(sequelize, DataTypes) {
+    var Subscription = sequelize.define('subscription', {
+        id: {
+            type: DataTypes.INTEGER(11),
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        login_id: {
+            type: DataTypes.INTEGER(11),
+            allowNull: false
+        },
+        package_id: {
+            type: DataTypes.INTEGER(11),
+            allowNull: false
+        },
+        customer_username: {
+            type: DataTypes.STRING(20),
+            allowNull: false
+        },
+        user_username: {
+            type: DataTypes.STRING(20),
+            allowNull: false
+        },
+        start_date: {
+            type: DataTypes.DATE,
+            allowNull: false
+        },
+        end_date: {
+            type: DataTypes.DATE,
+            allowNull: false
+        }
+    }, {
+        tableName: 'subscription',
+        associate: function(models) {
+            Subscription.belongsTo(models.login_data, {foreignKey: 'login_id'});
+            Subscription.belongsTo(models.package, {foreignKey: 'package_id'})
+        }
+    });
+    return Subscription;
+};
