@@ -24,3 +24,5 @@ When application runs for the first time, it will automatically create database 
 Login to start creating accounts and assets.
 
 Go to: http://YourDomain_or_IP/admin and login with username admin and password admin
+
+For more information please visit [https://www.magoware.tv/knowledgebase/](https://www.magoware.tv/knowledgebase/)
